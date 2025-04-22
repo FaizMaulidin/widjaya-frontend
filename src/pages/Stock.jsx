@@ -30,7 +30,7 @@ const Stock = ({setSelected}) => {
     const fetchStock = async({type, order, search}) => {
         const searching = search ? search : "AllItems"
         try {
-            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/sort/${type}/${order}/${searching}`)
+            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/${type}/${order}/${searching}`)
             setStock(res.data)
             
         } catch (error) {
@@ -41,7 +41,7 @@ const Stock = ({setSelected}) => {
     const fetchAllStock = async() => {
         setLoading(true)
         try{
-            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock`)
+            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/item/ASC/AllItems`)
             setAllStock(res.data)
             const active = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}active-items`)
             const totalQty = res.data.reduce((total, item) => {

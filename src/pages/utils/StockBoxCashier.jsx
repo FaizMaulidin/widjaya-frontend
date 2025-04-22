@@ -28,7 +28,6 @@ const StockBoxCashier = ({stock, popQty, setPopQty, cart, batchSelected, setBatc
             const thisBatch = typeof(batchSelected) === "number" ? batchSelected : 0
             const codeExist = cart.filter(item => (item.code === stock.code) && (item.batch === thisBatch)).length
             const itemBatch = batchInfo.filter(batch => batch.batch === batchSelected)[0]
-            console.log(itemBatch)
             if(!codeExist){
                 if (e.target[0].valueAsNumber > itemBatch.qty){
                     exceedQty.current.classList.add('opacity-100')

@@ -14,7 +14,7 @@ const ProdCartList = ({item, fetchCart, mode, batchSelected, stock}) => {
             if((item.qty > 1) === !sureRemove){
                 setLoading(true)
                 const data = mode === 'cashier' ? {code: item.code, batch: item.batch} : {code: item.code}
-                await axios.put(import.meta.env.VITE_DB_ENDPOINT + 'cart/'+ mode +'/clear/-', data)
+                await axios.put(import.meta.env.VITE_DB_ENDPOINT + 'cart/'+ mode +'/-', data)
                 setSurePop(false)
                 setSureRemove(false)
                 fetchCart()
@@ -40,7 +40,7 @@ const ProdCartList = ({item, fetchCart, mode, batchSelected, stock}) => {
             try {
                 setLoading(true)
                 const data = mode === 'cashier' ? {code: item.code, batch: item.batch} : {code: item.code}
-                await axios.put(import.meta.env.VITE_DB_ENDPOINT + 'cart/'+mode+'/clear/+', data)
+                await axios.put(import.meta.env.VITE_DB_ENDPOINT + 'cart/'+mode+'/+', data)
                 fetchCart()
             } catch (error) {
                 console.error(error)

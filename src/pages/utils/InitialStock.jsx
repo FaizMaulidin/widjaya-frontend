@@ -23,7 +23,7 @@ const Initial = ({setInitialStock, fetchStock, stock}) => {
             setSurePop(true)
             setSureRemove(true)
         } else {
-            await axios.put(import.meta.env.VITE_DB_ENDPOINT + 'cart/initial/clear')
+            await axios.delete(import.meta.env.VITE_DB_ENDPOINT + 'cart/initial')
             setSurePop(false)
             setPopQty('clear')
             setSureRemove(false)
@@ -37,7 +37,7 @@ const Initial = ({setInitialStock, fetchStock, stock}) => {
                     setSurePopSubmit(false)
                     setSureSubmit(false)
                     setSaving(true)
-                    await axios.post(`${import.meta.env.VITE_DB_ENDPOINT}stock/initial-stock`, cart)
+                    await axios.post(`${import.meta.env.VITE_DB_ENDPOINT}stock`, cart)
                 } catch (error) {
                     console.error(error)
                 } finally{

@@ -40,7 +40,7 @@ const Cashier = ({setSelected}) => {
             const fetchSearch = async() => {
                 setLoading(true)
                 try {
-                    const response = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/search/${search}`);
+                    const response = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/item/ASC/${search}`);
                     setStock(response.data);
                 } catch (error) {
                     console.error("Error searching for Items:", error);
@@ -57,7 +57,7 @@ const Cashier = ({setSelected}) => {
             setSurePop(true)
             setSureRemove(true)
         } else {
-            await axios.put(import.meta.env.VITE_DB_ENDPOINT + 'cart/cashier/clear')
+            await axios.delete(import.meta.env.VITE_DB_ENDPOINT + 'cart/cashier')
             setSurePop(false)
             setSureRemove(false)
             setPopQty('clear')
@@ -67,7 +67,7 @@ const Cashier = ({setSelected}) => {
     const fetchStock = async() => {
         setLoading(true)
         try {
-            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/sort/qty/DESC/AllItems`)
+            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/item/ASC/AllItems`)
             setStock(res.data)
             setAllStock(res.data)
         } catch (error) {
@@ -85,15 +85,14 @@ const Cashier = ({setSelected}) => {
                     setSureSubmit(false)
                     setSaving(true)
                     const items = cart.filter((x, i) => i!==cart.length-1)
-                    await axios.post(`${import.meta.env.VITE_DB_ENDPOINT}cashier/new-sales`, items)
+                    await axios.post(`${import.meta.env.VITE_DB_ENDPOINT}financial`, items)
                 } catch (error) {
                     console.error(error)
                 } finally{
-                    await axios.put(import.meta.env.VITE_DB_ENDPOINT + 'cart/cashier/clear')
+                    await axios.delete(import.meta.env.VITE_DB_ENDPOINT + 'cart/cashier')
                     setSaving(false)
                     fetchStock()
                     setPopQty('saved new transaction')
-                    setNewBatch(false)
                 }
             } else {
                 setSurePopSubmit(true)

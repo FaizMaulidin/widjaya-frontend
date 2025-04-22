@@ -33,7 +33,7 @@ const Financial = ({setSelected}) => {
 
 	const fetchAssets = async() => {
 		try{
-            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock`)
+            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/item/ASC/AllItems`)
             const totalAssets = res.data.reduce((assets, item) => {
 				const itemAssets = JSON.parse(item.batchInfo).reduce((batchAssets, batch) => {
 					return batchAssets + (batch.qty * batch.price)
@@ -48,7 +48,7 @@ const Financial = ({setSelected}) => {
 
     const handleGraph = async() => {
         try {
-            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}transactions/graph/${timeGraph.period}/${timeGraph.month}/${timeGraph.year}`)
+            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}financial/stats/${timeGraph.period}/${timeGraph.month}/${timeGraph.year}`)
             setGraphData(res.data)
         } catch (error) {
             console.error(error)
@@ -57,7 +57,7 @@ const Financial = ({setSelected}) => {
 
     const handleTopSelling = async() => {
         try {
-            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}top-selling/${timeGraph.period}/${timeGraph.month}/${timeGraph.year}`)
+            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}financial/top-selling/${timeGraph.period}/${timeGraph.month}/${timeGraph.year}`)
             setTopSelling(res.data)
         } catch (error) {
             console.error(error)

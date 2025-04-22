@@ -11,7 +11,7 @@ const StockList = ({s, setBatchState, batchState, fetchStock, fetchAllStock}) =>
     const handleThreshold = async(mode) => {
         try {
             setLoading(true)
-            await axios.put(`${import.meta.env.VITE_DB_ENDPOINT}stock/threshold/${mode}`, {code: s.code, threshold: s.threshold})
+            await axios.put(`${import.meta.env.VITE_DB_ENDPOINT}stock/${mode}`, {code: s.code, threshold: s.threshold})
             fetchStock()
             fetchAllStock()
         } catch (error) {

@@ -32,7 +32,7 @@ const NewBatch = ({setNewBatch, fetchBatch}) => {
     const fetchStock = async() => {
         setLoading(true)
         try {
-            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/sort/qty/ASC/AllItems`)
+            const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/qty/ASC/AllItems`)
             setStock(res.data)
             setAllStock(res.data)
         } catch (error) {
@@ -51,7 +51,7 @@ const NewBatch = ({setNewBatch, fetchBatch}) => {
             const fetchSearch = async() => {
                 setLoading(true)
                 try {
-                    const response = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/search/${search}`);
+                    const response = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/qty/ASC/${search}`);
                     setStock(response.data);
                 } catch (error) {
                     console.error("Error searching for Items:", error);
@@ -68,7 +68,7 @@ const NewBatch = ({setNewBatch, fetchBatch}) => {
             setSurePop(true)
             setSureRemove(true)
         } else {
-            await axios.put(import.meta.env.VITE_DB_ENDPOINT + 'cart/batch/clear')
+            await axios.delete(import.meta.env.VITE_DB_ENDPOINT + 'cart/batch')
             setSurePop(false)
             setSureRemove(false)
             setPopQty('clear')
@@ -86,7 +86,7 @@ const NewBatch = ({setNewBatch, fetchBatch}) => {
                         supplier: supplier.current.value,
                         items: items
                     }
-                    await axios.post(`${import.meta.env.VITE_DB_ENDPOINT}batch/new-batch`, data)
+                    await axios.post(`${import.meta.env.VITE_DB_ENDPOINT}batch`, data)
                 } catch (error) {
                     console.error(error)
                 } finally{
