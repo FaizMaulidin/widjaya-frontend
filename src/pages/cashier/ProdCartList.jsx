@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
-import SurePop from './SurePop'
+import SurePop from '../common/SurePop'
 
 const ProdCartList = ({item, fetchCart, mode, batchSelected, stock}) => {
     const [loading, setLoading] = useState(false)

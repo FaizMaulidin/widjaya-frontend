@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import Loading from '../../components/Loading'
 import StockBox from './StockBox'
-import ProdCartList from './ProdCartList'
 import CartBatch from './CartBatch'
-import SurePop from './SurePop'
+import SurePop from '../common/SurePop'
 
 const NewBatch = ({setNewBatch, fetchBatch}) => {
     const [loading, setLoading] = useState()

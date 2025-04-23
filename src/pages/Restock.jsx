@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Loading from '../components/Loading'
-import BatchList from './utils/BatchList'
-import NewBatch from './utils/NewBatch'
+import BatchList from './restock/BatchList'
+import NewBatch from './restock/NewBatch'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGear, faUsersBetweenLines, faUsersGear, faUsersLine, faUserTag } from '@fortawesome/free-solid-svg-icons'
 

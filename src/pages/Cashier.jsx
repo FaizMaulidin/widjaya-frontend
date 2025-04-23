@@ -1,11 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Loading from '../components/Loading'
-import StockBox from './utils/StockBox'
-import SurePop from './utils/SurePop'
-import CartBatch from './utils/CartBatch'
+import SurePop from './common/SurePop'
 import axios from 'axios'
-import CartCashier from './utils/CartCashier'
-import StockBoxCashier from './utils/StockBoxCashier'
+import CartCashier from './cashier/CartCashier'
+import StockBoxCashier from './cashier/StockBoxCashier'
 
 const Cashier = ({setSelected}) => {
     const [search, setSearch] = useState('')
@@ -20,7 +18,6 @@ const Cashier = ({setSelected}) => {
     const [sureSubmit, setSureSubmit] = useState(false)
     const [sureRemove, setSureRemove] = useState(false)
     const [paintedCashier, setPaintedCashier] = useState(false)
-    const [priceNew, setPriceNew] = useState('')
     const [batchSelected, setBatchSelected] = useState()
     const invalid = useRef()
 

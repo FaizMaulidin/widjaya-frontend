@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import ProdCartList from './ProdCartList'
+import ProdCartList from '../cashier/ProdCartList'
 
 const CartBatch = ({popQty, cart, setCart, popNew}) => {
     const fetchCart = async() => {

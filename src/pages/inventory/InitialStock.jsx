@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import SurePop from './SurePop'
+import SurePop from '../common/SurePop'
 import CartInitial from './CartInitial'
 import axios from 'axios'
 import Loading from '../../components/Loading'
