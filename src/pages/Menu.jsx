@@ -23,7 +23,7 @@ const Menu = () => {
                 <div className=' flex flex-col gap-5'>
                     <div className='p-5 flex flex-col gap-3 bg-black'>
                         <div className='bg-defblue w-20 h-20'></div>
-                        <h2 className=' text-lg'>Welcome, {decodedToken.username}</h2>
+                        <h2 className=' text-lg'>Welcome, Pak Boss</h2>
                     </div>
                     <div className='flex flex-col gap-2'>
                         <DashButton id='Dashboard' selected={selected} click="/dashboard"><FontAwesomeIcon icon={faChartLine}/>Dashboard</DashButton>
