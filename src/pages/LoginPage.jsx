@@ -2,7 +2,6 @@ import React, { useEffect, useReducer, useRef, useState } from 'react'
 import { useAuth } from '../auth/AuthProvider';
 import { Navigate } from 'react-router-dom';
 import Input from '../components/Input';
-import { animate, createScope, createSpring } from 'animejs';
 import Loading from '../components/Loading';
 
 const LoginPage = () => {
@@ -14,8 +13,6 @@ const LoginPage = () => {
 	const input2 = useRef()
 	const btn = useRef()
 	const invalid = useRef()
-	const scope = useRef()
-	const root = useRef()
   
     const handleLogin = async(e) => {
 		e.preventDefault()
@@ -51,28 +48,11 @@ const LoginPage = () => {
 			}, 3000)
 		}
 	}, [error])
-	useEffect(() => {
-		scope.current = createScope({root}).add(self => {
-			animate('.title', {
-				skewY: { from: '3deg', delay: 300 },
-                y: {from: '60' },
-                ease: createSpring({stiffness: 50})
-			})
-			animate('.subtitle', {
-				y: {from: '10%'},
-				duration: 200,
-				delay: 600,
-				ease: 'outQuad'
-			})
-		})
-
-		return () => scope.current.revert()
-	}, [])
 
     if (token) return <Navigate to="/main/dashboard" replace/>
 
     return (
-		<div ref={root} className=' flex justify-center flex-col text-[0.95rem] text-black h-screen items-center w-full gap-6'>
+		<div className=' flex justify-center flex-col text-[0.95rem] text-black h-screen items-center w-full gap-6'>
 			<div className=' flex flex-col gap-1 justify-center items-center'>
 				<div className='h-fit w-fit pt-2 overflow-hidden'>
 					<h1 className='title flex justify-center text-4xl font-black w-fit leading-none text-black'>
