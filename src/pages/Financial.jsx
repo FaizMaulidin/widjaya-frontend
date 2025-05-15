@@ -5,7 +5,7 @@ import TopSelling from './financial/TopSelling'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClockRotateLeft, faFile, faFolder } from '@fortawesome/free-solid-svg-icons'
 import { faFileLines } from '@fortawesome/free-solid-svg-icons/faFileLines'
-import History from './financial/history'
+import History from './financial/History'
 
 const Financial = ({setSelected}) => {
     const [paintedFinancial, setPaintedFinancial] = useState(false)
