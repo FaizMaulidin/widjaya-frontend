@@ -4,7 +4,8 @@ import Loading from '../components/Loading'
 import BatchList from './restock/BatchList'
 import NewBatch from './restock/NewBatch'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserGear, faUsersBetweenLines, faUsersGear, faUsersLine, faUserTag } from '@fortawesome/free-solid-svg-icons'
+import { faUserTag } from '@fortawesome/free-solid-svg-icons'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const Restock = ({setSelected}) => {
     const [batch, setBatch] = useState()
@@ -58,11 +59,11 @@ const Restock = ({setSelected}) => {
                         <div className='w-[35%] flex justify-center'>Supplier</div>
                         <div className='w-[20%] flex justify-end'>Purchase Amount</div>
                     </div>
-                    <div className='flex flex-col overflow-y-auto scroll-custom flex-grow justify-start gap-0'>
-                        {loading ? <Loading/> : batch.map((b, i) => {
-                            return <BatchList batch={b} key={b.batch} setItemState={setItemState} itemState={itemState} index={i}/>
-                        })}
-                    </div>
+                        <div layout className='flex flex-col overflow-y-auto scroll-custom flex-grow justify-start gap-0'>
+                            {loading ? <Loading/> : batch.map((b, i) => {
+                                return <BatchList batch={b} key={b.batch} setItemState={setItemState} itemState={itemState} index={i}/>
+                            })}
+                        </div>
                 </div>
             </div>
             {newBatch ? <NewBatch setNewBatch={setNewBatch} fetchBatch={fetchBatch} />: <></>}

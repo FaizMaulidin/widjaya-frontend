@@ -5,11 +5,8 @@ import Loading from '../components/Loading'
 import Initial from './inventory/InitialStock'
 import HeaderBox from './inventory/HeaderBox'
 import StockBoxLow from './inventory/StockBoxLow'
+import { Chart } from 'chart.js/auto'
 import { Doughnut } from 'react-chartjs-2'
-import { Chart as ChartJS } from 'chart.js/auto'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfo } from '@fortawesome/free-solid-svg-icons'
-
 
 const Stock = ({setSelected}) => {
     const [stock, setStock] = useState()

@@ -24,3 +24,15 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.perspective{
+  transform: perspective(200px) translate3d(0, 0px, 0) rotateX(0deg);
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  transition-delay: 300ms;
+}
+
+.perspective-hov{
+  transform: perspective(200px) translate3d(0, 25px, 0) rotateX(30deg);
+  opacity: 0;
+}

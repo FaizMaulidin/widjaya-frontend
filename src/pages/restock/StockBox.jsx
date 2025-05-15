@@ -31,7 +31,7 @@ const StockBox = ({stock, popQty, setPopQty, cart, mode}) => {
                         qty: e.target[0].valueAsNumber,
                         price: parseInt(e.target[1].value.split(',').join(''))
                     }
-                    const res = await axios.post(import.meta.env.VITE_DB_ENDPOINT + 'cart/' + mode, data)
+                    await axios.post(import.meta.env.VITE_DB_ENDPOINT + 'cart/' + mode, data)
                     setPopQty('submit')
                 } catch (error) {
                     console.error(error)

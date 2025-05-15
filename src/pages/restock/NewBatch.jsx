@@ -95,7 +95,6 @@ const NewBatch = ({setNewBatch, fetchBatch}) => {
                     setNewBatch(false)
                 }
             } else {
-                console.log(sureSubmit)
                 setSurePopSubmit(true)
                 setSureSubmit(true)
             }

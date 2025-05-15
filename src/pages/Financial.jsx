@@ -5,6 +5,7 @@ import TopSelling from './financial/TopSelling'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClockRotateLeft, faFile, faFolder } from '@fortawesome/free-solid-svg-icons'
 import { faFileLines } from '@fortawesome/free-solid-svg-icons/faFileLines'
+import History from './financial/history'
 
 const Financial = ({setSelected}) => {
     const [paintedFinancial, setPaintedFinancial] = useState(false)
@@ -16,7 +17,7 @@ const Financial = ({setSelected}) => {
     })
     const [topSelling, setTopSelling] = useState()
 	const [assets, setAssets] = useState()
-	
+    const [history, setHistory] = useState(false)
 
     useEffect(() => {
         setSelected("Financial") 
@@ -28,7 +29,6 @@ const Financial = ({setSelected}) => {
     useEffect(() => {
         handleGraph()
         handleTopSelling()
-        console.log(graphData)
     }, [timeGraph])
 
 	const fetchAssets = async() => {
@@ -258,39 +258,36 @@ const Financial = ({setSelected}) => {
                 </div>
             </div>
         </div>
-        <div className="flex items-center w-full h-52 gap-3">
-            <div className='bg-white rounded-sm shadow-input h-full w-[30%] p-4 pt-2 flex gap-4 flex-col justify-between items-center border border-grayborderdim'>
-				<h1 className='font-semibold text-defblue text-lg pb-1 w-full text-center border-b border-grayborder'>Assets Details</h1>
-				<div className=' flex flex-col w-full flex-grow gap-2 text-graytext'>
-					<div className=' flex-grow flex flex-col justify-center items-center text-sm font-semibold'>
-						<h1 className=''>Total Assets In Hand</h1>
-						<p className=' text-defblue text-2xl font-bold flex-grow flex items-center'>Rp{assets?.toLocaleString()}</p>
-					</div>
-					<div className=' flex-grow flex flex-col justify-center items-center text-sm font-semibold'>
-						<h1 className=''>Potential Sales Value</h1>
-						<p className=' text-defblue text-2xl font-bold flex-grow flex items-center'>Rp{(assets * 135 / 100).toLocaleString()}</p>
-					</div>
-				</div>
-            </div>
+        <div className="flex items-center w-full gap-3 flex-grow">
             <div className='bg-white rounded-sm shadow-input h-full flex-grow p-4 pt-2 flex gap-4 flex-col justify-between items-center border border-grayborderdim'>
                 <h1 className='font-semibold text-defblue text-lg pb-1 w-full text-center border-b border-grayborder'>Top Revenue Items</h1>
-                <div className=' w-full flex-grow justify-center flex text-xs gap-12'>
+                <div className=' w-full flex-grow justify-center flex text-xs gap-12 py-2 pb-4'>
                     {topSelling?.map((item, i) => {
                         return <TopSelling key={i} item={item}/>
                     })}
                 </div>
             </div>
+            <div className='flex flex-col gap-3 w-[30%] h-full'>
+                <div className='bg-white rounded-sm shadow-input flex-grow p-4 pt-2 flex gap-4 flex-col justify-between items-center border border-grayborderdim'>
+                    <h1 className='font-semibold text-defblue text-lg pb-1 w-full text-center border-b border-grayborder'>Assets Details</h1>
+                    <div className=' flex flex-col w-full flex-grow gap-2 text-graytext'>
+                        <div className=' flex-grow flex flex-col justify-center items-center text-sm font-semibold'>
+                            <h1 className=''>Total Assets In Hand</h1>
+                            <p className=' text-defblue text-2xl font-bold flex-grow flex items-center'>Rp{assets?.toLocaleString()}</p>
+                        </div>
+                        <div className=' flex-grow flex flex-col justify-center items-center text-sm font-semibold'>
+                            <h1 className=''>Potential Sales Value</h1>
+                            <p className=' text-defblue text-2xl font-bold flex-grow flex items-center'>Rp{(assets * 135 / 100).toLocaleString()}</p>
+                        </div>
+                    </div>
+                </div>
+                <button onClick={() => {setHistory(true); console.log(new Date('2025-05-07 17:43:28').getTime())}} className='bg-defblue rounded-sm shadow-input py-4 px-8 flex justify-center items-center font-semibold text-white hover:bg-white border-2 border-transparent hover:text-defblue hover:border-defblue transition-all hover:shadow-inputhov gap-2'>
+                    <FontAwesomeIcon icon={faClockRotateLeft}/>
+                    See Transaction History
+                </button>
+            </div>
         </div>
-        <div className="flex items-center flex-grow w-full gap-3">
-            <button className='border-2 border-defblue rounded-sm shadow-input h-full w-1/2 flex justify-center items-center gap-2 font-semibold text-defblue hover:scale-[1.02] transition-all hover:shadow-inputhov'>
-                <FontAwesomeIcon icon={faFileLines}/>
-                Print Transaction Report
-            </button>
-            <button className='bg-defblue rounded-sm shadow-input h-full flex-grow flex justify-center items-center font-semibold text-white hover:scale-[1.02] transition-all hover:shadow-inputhov gap-2'>
-                <FontAwesomeIcon icon={faClockRotateLeft}/>
-                See Transaction History
-            </button>
-        </div>
+        {history && <History setHistory={setHistory} transactions={graphData.transaction.history}/>}
       </div>
     )
 }
