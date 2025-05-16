@@ -59,7 +59,7 @@ const Restock = ({setSelected}) => {
                         <div className='w-[35%] flex justify-center'>Supplier</div>
                         <div className='w-[20%] flex justify-end'>Purchase Amount</div>
                     </div>
-                        <div layout className='flex flex-col overflow-y-auto scroll-custom flex-grow justify-start gap-0'>
+                        <div className='flex flex-col overflow-y-auto scroll-custom flex-grow justify-start gap-0'>
                             {loading ? <Loading/> : batch.map((b, i) => {
                                 return <BatchList batch={b} key={b.batch} setItemState={setItemState} itemState={itemState} index={i}/>
                             })}

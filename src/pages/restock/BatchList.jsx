@@ -7,7 +7,7 @@ const BatchList = ({batch, itemState, setItemState, index}) => {
     const date = new Date(batch.date)
 
     return (
-        <div layout className=' items-center leading-none'>
+        <div className=' items-center leading-none'>
             <div onClick={() => {state ? setItemState(null) : setItemState(batch.batch)}} className='flex h-fit py-4 px-8 gap-2 hover:bg-defblue hover:text-white transition-all cursor-pointer'>
                 <div className='w-[7%] flex'>
                     <div className={'px-1 font-semibold' + (state ? ' rotate-90' : "" )} >{'>'}</div>
@@ -15,7 +15,7 @@ const BatchList = ({batch, itemState, setItemState, index}) => {
                 <div className='w-[18%] text-nowrap overflow-hidden'>{`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`}</div>
                 <div className='w-[20%] text-nowrap overflow-hidden flex'>Batch-{batch.batch}</div>
                 <div className='w-[35%] flex justify-center text-nowrap overflow-hidden'>{batch.supplier}</div>
-                <div className='w-[20%] flex justify-between pl-16'><p>Rp</p>{batch.totalPrice.toLocaleString()}</div>
+                <div className='w-[20%] flex justify-between pl-16'><p>Rp</p>{batch.totalPrice?.toLocaleString()}</div>
             </div>
             <AnimatePresence>
                 {state && <motion.div 
