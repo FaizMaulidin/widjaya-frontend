@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
       const response = await axios.post(import.meta.env.VITE_DB_ENDPOINT + "login", data);
       setToken(response.data.token)
       localStorage.setItem("token", response.data.token);
-      console.log("Login successful!");
+      console.log("Welcome");
     } catch (error) {
       setError("Invalid")
       setTimeout(() => {
