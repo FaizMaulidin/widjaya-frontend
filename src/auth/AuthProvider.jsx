@@ -10,7 +10,6 @@ export function AuthProvider({ children }) {
   })
 
   const login = async(data, setError) => {
-    console.log(import.meta.env.VITE_DB_ENDPOINT) 
     try {
       const response = await axios.post(import.meta.env.VITE_DB_ENDPOINT + "login", data);
       setToken(response.data.token)
