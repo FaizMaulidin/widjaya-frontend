@@ -242,15 +242,15 @@ const Financial = ({setSelected}) => {
             <div className='h-full flex-grow gap-3 grid grid-cols-2 grid-rows-2 text-white'>
                 <div className='rounded-sm shadow-input flex flex-col  p-4 items-center font-semibold bg-green-600 text-lg relative'>
                     <h1 className=''>Total Revenue</h1>
-                    <h2 className=' text-2xl  font-bold flex-grow flex items-center'>Rp{graphData?.totalIncome.toLocaleString()}</h2>
+                    <h2 className=' text-2xl  font-bold flex-grow flex items-center'>Rp{graphData?.totalIncome?.toLocaleString()}</h2>
                 </div>
                 <div className='rounded-sm shadow-input flex bg-red-600 flex-col  p-4 items-center font-semibold relative'>
                     <h1 className=''>Total Expenses</h1>
-                    <h2 className=' text-2xl font-bold flex-grow flex items-center'>Rp{graphData?.totalExp.toLocaleString()}</h2>
+                    <h2 className=' text-2xl font-bold flex-grow flex items-center'>Rp{graphData?.totalExp?.toLocaleString()}</h2>
                 </div>
                 <div className='bg-white rounded-sm shadow-input flex flex-col border border-grayborderdim p-4 items-center font-semibold text-lg relative'>
                     <h1 className='text-blackop'>Net Profit</h1>
-                    <h2 className=' text-2xl font-bold text-green-600 flex-grow flex items-center'>Rp{graphData?.profit.toLocaleString()}</h2>
+                    <h2 className=' text-2xl font-bold text-green-600 flex-grow flex items-center'>Rp{graphData?.profit?.toLocaleString()}</h2>
                 </div>
                 <div className=' bg-white rounded-sm shadow-input border border-grayborderdim flex flex-col p-4 items-center font-semibold text-lg relative text-blackop'>
                     <h1 className=''>Quantity Sold</h1>
