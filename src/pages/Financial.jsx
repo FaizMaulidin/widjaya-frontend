@@ -166,6 +166,7 @@ const Financial = ({setSelected}) => {
                                                 return hour + ':00'
                                         }
                                     },
+                                    autoSkip: true,
                                     autoSkipPadding: 10,
                                     maxRotation: 0
                                 }
@@ -239,7 +240,7 @@ const Financial = ({setSelected}) => {
                     }}
                 />
             </div>
-            <div className='h-full flex-grow gap-3 grid grid-cols-2 grid-rows-2 text-white'>
+            <div className='h-full flex-grow gap-2 grid grid-cols-2 grid-rows-2 text-white'>
                 <div className='rounded-sm shadow-input flex flex-col  p-4 items-center font-semibold bg-green-600 text-lg relative'>
                     <h1 className=''>Total Revenue</h1>
                     <h2 className=' text-2xl  font-bold flex-grow flex items-center'>Rp{graphData?.totalIncome?.toLocaleString()}</h2>
