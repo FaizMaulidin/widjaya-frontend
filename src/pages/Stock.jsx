@@ -142,8 +142,8 @@ const Stock = ({setSelected}) => {
                             <select onChange={(e) => setSort(JSON.parse(e.target.value))} name="sort" id="" className=' outline-none border border-grayborder rounded-md py-2 font-normal px-4 cursor-pointer'>
                                 <option value={`{"type":"item","order":"ASC", "search": "${search}"}`}>Item</option>
                                 <option value={`{"type":"qty","order":"ASC", "search": "${search}"}`}>Quantity</option>
-                                <option value={`{"type":"avgPrice","order":"DESC", "search": "${search}"}`}>Highest Price</option>
-                                <option value={`{"type":"avgPrice","order":"ASC", "search": "${search}"}`}>Lowest Price</option>
+                                <option value={`{"type":"avg_price","order":"DESC", "search": "${search}"}`}>Highest Price</option>
+                                <option value={`{"type":"avg_price","order":"ASC", "search": "${search}"}`}>Lowest Price</option>
                             </select>
                         </div>
                         <button onClick={() => setInitialStock(true)} className='bg-defblue rounded-lg px-4 hover:bg-defbluehov transition-all py-2 text-white font-medium'>+ Add Initial Stock</button>

@@ -16,14 +16,14 @@ const CartCashier = ({stockData, cart, setCart, popQty, batchSelected}) => {
             <div className='flex flex-col flex-grow overflow-y-auto scroll-custom relative'>
                     {cart.length > 1 && cart?.map((item, i) => {
                         if(i === cart.length - 1) return <div key={i}></div>
-                        return <AnimatePresence>
+                        return <AnimatePresence key={i}>
                             <motion.div
                                 initial={{opacity:0,y:25}}
                                 animate={{opacity:1,y:0}}
                                 exit={{opacity:0,y:25}}
                                 layout
                             >
-                                <ProdCartList item={item} key={i} fetchCart={fetchCart} mode={'cashier'} batchSelected={batchSelected} stock={stockData?.filter(stock => stock.code === item.code)[0]}/>
+                                <ProdCartList item={item}  fetchCart={fetchCart} mode={'cashier'} batchSelected={batchSelected} stock={stockData?.filter(stock => stock.code === item.code)[0]}/>
                             </motion.div>
                         </AnimatePresence>
                     })}

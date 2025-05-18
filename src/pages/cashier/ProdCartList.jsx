@@ -7,7 +7,7 @@ const ProdCartList = ({item, fetchCart, mode, batchSelected, stock}) => {
     const [loading, setLoading] = useState(false)
     const [sureRemove, setSureRemove] = useState(false)
     const [surePop, setSurePop] = useState(false)
-    const batchInfo = stock ? JSON.parse(stock.batchInfo) : []
+    const batchInfo = stock ? JSON.parse(stock.batch_info) : []
     const prod = useRef()
 
     const handleMin = async(e) => {

@@ -35,7 +35,7 @@ const Financial = ({setSelected}) => {
 		try{
             const res = await axios.get(`${import.meta.env.VITE_DB_ENDPOINT}stock/item/ASC/AllItems`)
             const totalAssets = res.data.reduce((assets, item) => {
-				const itemAssets = JSON.parse(item.batchInfo).reduce((batchAssets, batch) => {
+				const itemAssets = JSON.parse(item.batch_info).reduce((batchAssets, batch) => {
 					return batchAssets + (batch.qty * batch.price)
 				}, 0)
 				return assets + itemAssets

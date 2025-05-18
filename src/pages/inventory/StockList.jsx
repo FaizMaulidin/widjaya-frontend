@@ -4,8 +4,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const StockList = ({s, setBatchState, batchState, fetchStock, fetchAllStock}) => {
     const state = batchState === s.code
-    const price = s.avgPrice.toLocaleString()
-    const batchInfo = JSON.parse(s.batchInfo)
+    const price = s.avg_price.toLocaleString()
+    const batchInfo = JSON.parse(s.batch_info)
     const [loading, setLoading] = useState(false)
     const ref = useRef()
 

@@ -15,7 +15,7 @@ const BatchList = ({batch, itemState, setItemState, index}) => {
                 <div className='w-[18%] text-nowrap overflow-hidden'>{`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`}</div>
                 <div className='w-[20%] text-nowrap overflow-hidden flex'>Batch-{batch.batch}</div>
                 <div className='w-[35%] flex justify-center text-nowrap overflow-hidden'>{batch.supplier}</div>
-                <div className='w-[20%] flex justify-between pl-16'><p>Rp</p>{batch.totalPrice?.toLocaleString()}</div>
+                <div className='w-[20%] flex justify-between pl-16'><p>Rp</p>{batch.total_price.toLocaleString()}</div>
             </div>
             <AnimatePresence>
                 {state && <motion.div 

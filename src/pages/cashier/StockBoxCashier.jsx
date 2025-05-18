@@ -7,7 +7,7 @@ const StockBoxCashier = ({stock, popQty, setPopQty, cart, batchSelected, setBatc
     const zero = useRef()
     const already = useRef()
     const exceedQty = useRef()
-    const batchInfo = JSON.parse(stock.batchInfo)
+    const batchInfo = JSON.parse(stock.batch_info)
 
     useEffect(() => {
         setPricePop('')
