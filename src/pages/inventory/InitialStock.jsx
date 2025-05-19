@@ -41,7 +41,7 @@ const Initial = ({setInitialStock, fetchStock, stock}) => {
                 } catch (error) {
                     console.error(error)
                 } finally{
-                    await axios.put(import.meta.env.VITE_DB_ENDPOINT + 'cart/initial/clear')
+                    await axios.delete(import.meta.env.VITE_DB_ENDPOINT + 'cart/initial')
                     setSaving(false)
                     fetchStock()
                     setInitialStock(false)

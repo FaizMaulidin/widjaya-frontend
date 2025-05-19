@@ -89,7 +89,7 @@ const NewBatch = ({setNewBatch, fetchBatch}) => {
                 } catch (error) {
                     console.error(error)
                 } finally{
-                    await axios.put(import.meta.env.VITE_DB_ENDPOINT + 'cart/batch/clear')
+                    await axios.delete(import.meta.env.VITE_DB_ENDPOINT + 'cart/batch')
                     setSaving(false)
                     fetchBatch()
                     setNewBatch(false)
