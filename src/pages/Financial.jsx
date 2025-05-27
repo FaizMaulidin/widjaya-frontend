@@ -282,13 +282,13 @@ const Financial = ({setSelected}) => {
                         </div>
                     </div>
                 </div>
-                <button onClick={() => {setHistory(true); console.log(new Date('2025-05-07 17:43:28').getTime())}} className='bg-defblue rounded-sm shadow-input py-4 px-8 flex justify-center items-center font-semibold text-white hover:bg-white border-2 border-transparent hover:text-defblue hover:border-defblue transition-all hover:shadow-inputhov gap-2'>
+                <button onClick={() => setHistory(true)} className='bg-defblue rounded-sm shadow-input py-4 px-8 flex justify-center items-center font-semibold text-white hover:bg-white border-2 border-transparent hover:text-defblue hover:border-defblue transition-all hover:shadow-inputhov gap-2'>
                     <FontAwesomeIcon icon={faClockRotateLeft}/>
                     See Transaction History
                 </button>
             </div>
         </div>
-        {history && <History setHistory={setHistory} transactions={graphData.transaction.history}/>}
+        {history && <History setHistory={setHistory} months={months} transactions={graphData.transaction.history}/>}
       </div>
     )
 }
