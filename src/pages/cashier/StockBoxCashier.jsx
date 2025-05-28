@@ -55,7 +55,7 @@ const StockBoxCashier = ({stock, popQty, setPopQty, cart, batchSelected, setBatc
                 already.current.classList.add('opacity-100')
                 setTimeout(() => {
                     already.current.classList.remove('opacity-100')
-                }, 2000);
+                }, 2000)
             }
         }
     }
@@ -70,7 +70,7 @@ const StockBoxCashier = ({stock, popQty, setPopQty, cart, batchSelected, setBatc
     }
 
     return (
-        <div onClick={() => {setPopQty(stock.code)}} className=' shadow-input h-56 rounded-sm flex flex-col overflow-hidden hover:shadow-defblue transition-all cursor-pointer'>
+        <div onClick={() => {setPopQty(stock.code)}} className=' shadow-input h-56 rounded-sm flex flex-col overflow-hidden hover:shadow-defblue transition-all cursor-pointer bg-white'>
             <div className=' w-full h-[55%] flex justify-center items-center flex-col gap-3 bg-defblue text-white'>
                 <h3 className=' text-xs'>Quantity:</h3>
                 <h1 className=' text-4xl font-semibold'>{stock.qty}</h1>

@@ -64,7 +64,7 @@ const Financial = ({setSelected}) => {
         }
     }
 
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', ' Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Des']
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Des']
     const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     const monthOpt = () => {
         let today = new Date()
@@ -288,7 +288,7 @@ const Financial = ({setSelected}) => {
                 </button>
             </div>
         </div>
-        {history && <History setHistory={setHistory} months={months} transactions={graphData.transaction.history}/>}
+        {history && <History setHistory={setHistory} months={months} transactions={[...graphData.transaction.history].reverse()} timeGraph={timeGraph}/>}
       </div>
     )
 }

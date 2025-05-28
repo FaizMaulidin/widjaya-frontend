@@ -28,7 +28,7 @@ const CartCashier = ({stockData, cart, setCart, popQty, batchSelected}) => {
                         </AnimatePresence>
                     })}
             </div>
-            <div className=' flex py-3 px-4 justify-between w-full border-t border-defblue font-semibold bg-white shadow-inner z-10'>
+            <div className=' flex py-3 px-4 justify-between w-full border-t border-defblue font-semibold shadow-inner z-10'>
                 <h1 className='flex gap-1'>Total Price:</h1>
                 <h1 className='text-defblue'>Rp {cart[cart.length - 1]?.toLocaleString()}</h1>
             </div>

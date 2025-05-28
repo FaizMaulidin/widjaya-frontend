@@ -108,8 +108,8 @@ const Cashier = ({setSelected}) => {
     }
 
     return (
-        <div className={' flex w-full h-screen justify-center items-center bg-white z-10 text-black transition-all duration-500 delay-100' + (paintedCashier ? '' : " opacity-0 translate-y-10")}>
-            <div className=' bg-white h-screen w-full rounded-lg p-6 flex flex-col'>
+        <div className={' flex w-full h-screen justify-center items-center z-10 text-black transition-all duration-500 delay-100' + (paintedCashier ? '' : " opacity-0 translate-y-10")}>
+            <div className=' h-screen w-full rounded-lg p-6 flex flex-col'>
                 <div className=' flex justify-between border-b-2 border-grayborder pb-4'>
                     <div className='flex flex-col gap-1'>
                         <h1 className='text-4xl font-bold text-defblue'>Cashier App</h1>
@@ -118,7 +118,7 @@ const Cashier = ({setSelected}) => {
                 <div className=' flex-grow w-full mt-4 flex overflow-hidden'>
                     <div className='w-[64%] border-r-2 border-grayborder flex flex-col gap-3 pr-6 relative'>
                         <div className='flex gap-3'>
-                            <input type="text" placeholder='Search Item' className='outline-none border border-grayborder rounded px-4 py-1 flex-grow' onChange={handleSearch}/>
+                            <input type="text" placeholder='Search Item' className='outline-none border border-grayborder rounded px-4 py-1 flex-grow bg-transparent' onChange={handleSearch}/>
                         </div>
                         <div className={loading ? 'flex w-full h-full justify-center items-center' :' w-full h-full p-3 gap-3 grid grid-cols-4 overflow-y-auto scroll-custom grid-flow-row'}>
                             {loading ? <Loading/> : stock?.map((sto, i) => {
